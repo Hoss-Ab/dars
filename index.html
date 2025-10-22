@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>dars.trevopro.online | خانه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="logo">d</div>
+      <div>
+        <div class="title">dars.trevopro.online</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9)">پایه هشتم - گام به گام</div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px">
+      <nav class="top-links" aria-label="top links">
+        <a class="nav-item" href="books.html">کتاب‌ها</a>
+        <a class="nav-item" href="contact.html">تماس</a>
+      </nav>
+      <div class="menu-toggle" onclick="togglePanel()">☰</div>
+    </div>
+  </header>
+
+  <aside class="side-panel" id="panel">
+    <h3>منو</h3>
+    <nav class="nav-list" id="sideNav">
+      <a href="index.html" class="nav-item active">خانه</a>
+      <a href="books.html" class="nav-item">فهرست کتاب‌ها</a>
+      <a href="contact.html" class="nav-item">تماس</a>
+      <a href="index.html" class="nav-item" style="margin-top:12px;background:#f5f5f5;color:var(--muted);font-weight:600">بازگشت به TrevoPro</a>
+    </nav>
+  </aside>
+
+  <main class="container">
+    <section class="hero">
+      <div class="left">
+        <h1>خوش آمدی به دَرس</h1>
+        <p>این سایت برای دانش آموزان پایه هشتم طراحی شده و شامل گام به گام کامل درس‌ها و سوالات متن است. ساده و مرحله به مرحله مطالعه کن.</p>
+        <a class="cta" href="books.html">مشاهده فهرست کتاب‌ها</a>
+      </div>
+      <div style="width:220px;text-align:center">
+        <div style="background:var(--soft);padding:12px;border-radius:12px">
+          <div style="font-weight:800">Grade 8</div>
+          <div class="small">گام به گام و تمرین‌ها</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:26px" class="grid books-grid">
+      <div class="card book">
+        <div class="center">
+          <div class="book-icon">8</div>
+          <div style="flex:1">
+            <div class="book-title">ریاضی</div>
+            <div class="book-desc">خلاصه فصل به فصل و تمرین های مهم</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn" href="book-math.html">مشاهده</a>
+        </div>
+      </div>
+
+      <div class="card book">
+        <div class="center">
+          <div class="book-icon" style="background:linear-gradient(180deg,#2b9db0,#0b7285)">8</div>
+          <div style="flex:1">
+            <div class="book-title">علوم</div>
+            <div class="book-desc">نکات کلیدی و تمرینات کاربردی</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn" href="book-science.html">مشاهده</a>
+        </div>
+      </div>
+
+      <div class="card book">
+        <div class="center">
+          <div class="book-icon" style="background:linear-gradient(180deg,#f2b705,#d69800)">8</div>
+          <div style="flex:1">
+            <div class="book-title">فارسی</div>
+            <div class="book-desc">خلاصه درس و تحلیل متون</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn" href="book-persian.html">مشاهده</a>
+        </div>
+      </div>
+
+      <div class="card book">
+        <div class="center">
+          <div class="book-icon" style="background:linear-gradient(180deg,#9b59b6,#7b3ea6)">8</div>
+          <div style="flex:1">
+            <div class="book-title">مطالعات اجتماعی</div>
+            <div class="book-desc">گام به گام مفاهیم و سوالات متن</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn" href="book-social.html">مشاهده</a>
+        </div>
+      </div>
+
+      <div class="card book">
+        <div class="center">
+          <div class="book-icon" style="background:linear-gradient(180deg,#6ab04c,#4f8b35)">8</div>
+          <div style="flex:1">
+            <div class="book-title">پیام های آسمان</div>
+            <div class="book-desc">خلاصه مفاهیم دینی و سوالات مهم</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn" href="book-religion.html">مشاهده</a>
+        </div>
+      </div>
+
+      <div class="card book">
+        <div class="center">
+          <div class="book-icon" style="background:linear-gradient(180deg,#e76f51,#d3542a)">8</div>
+          <div style="flex:1">
+            <div class="book-title">عربی</div>
+            <div class="book-desc">لغت، قواعد و تمرین</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <a class="btn" href="book-arabic.html">مشاهده</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">© 2025 dars.trevopro.online</footer>
+  </main>
+
+<script>
+  function togglePanel(){document.getElementById('panel').classList.toggle('open')}
+  // highlight active
+  document.addEventListener('DOMContentLoaded', ()=> {
+    const items = document.querySelectorAll('.nav-list .nav-item');
+    items.forEach(it => { if(location.pathname.endsWith(it.getAttribute('href'))) it.classList.add('active') });
+  });
+</script>
+</body>
+</html>
