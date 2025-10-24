@@ -12,7 +12,7 @@
       <div class="logo">d</div>
       <div>
         <div class="title">dars.trevopro.online</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.9)">پایه هشتم - گام به گام</div>
+        <div class="meta">پایه هشتم - گام به گام</div>
       </div>
     </div>
 
@@ -25,32 +25,35 @@
     </div>
   </header>
 
-  <aside class="side-panel" id="panel">
+  <div id="overlay" class="overlay" onclick="closePanel()"></div>
+
+  <aside class="side-panel" id="panel" aria-hidden="true">
     <h3>منو</h3>
     <nav class="nav-list" id="sideNav">
       <a href="index.html" class="nav-item active">خانه</a>
       <a href="books.html" class="nav-item">فهرست کتاب‌ها</a>
       <a href="contact.html" class="nav-item">تماس</a>
-      <a href="index.html" class="nav-item" style="margin-top:12px;background:#f5f5f5;color:var(--muted);font-weight:600">بازگشت به TrevoPro</a>
+      <a href="https://trevopro.online" class="nav-item" style="margin-top:12px;background:#f5f5f5;color:var(--muted);font-weight:600">بازگشت به TrevoPro</a>
     </nav>
   </aside>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="left">
-        <h1>خوش آمدی به دَرس</h1>
-        <p>این سایت برای دانش آموزان پایه هشتم طراحی شده و شامل گام به گام کامل درس‌ها و سوالات متن است. ساده و مرحله به مرحله مطالعه کن.</p>
+        <h1 id="hero-title">خوش آمدی به درس</h1>
+        <p>این سایت برای دانش‌آموزان پایه هشتم طراحی شده. گام به گام تمام کتاب‌ها و سوالات متن را اینجا می‌بینی. ساده، مرتب و قابل دنبال کردن.</p>
         <a class="cta" href="books.html">مشاهده فهرست کتاب‌ها</a>
       </div>
       <div style="width:220px;text-align:center">
         <div style="background:var(--soft);padding:12px;border-radius:12px">
           <div style="font-weight:800">Grade 8</div>
-          <div class="small">گام به گام و تمرین‌ها</div>
+          <div class="small muted">گام به گام و تمرین‌ها</div>
         </div>
       </div>
     </section>
 
-    <section style="margin-top:26px" class="grid books-grid">
+    <section style="margin-top:26px" class="grid books-grid" aria-label="featured books">
+      <!-- cards for six books -->
       <div class="card book">
         <div class="center">
           <div class="book-icon">8</div>
@@ -59,9 +62,7 @@
             <div class="book-desc">خلاصه فصل به فصل و تمرین های مهم</div>
           </div>
         </div>
-        <div style="margin-top:12px">
-          <a class="btn" href="book-math.html">مشاهده</a>
-        </div>
+        <div class="mt12"><a class="btn" href="book-math.html">مشاهده</a></div>
       </div>
 
       <div class="card book">
@@ -72,9 +73,7 @@
             <div class="book-desc">نکات کلیدی و تمرینات کاربردی</div>
           </div>
         </div>
-        <div style="margin-top:12px">
-          <a class="btn" href="book-science.html">مشاهده</a>
-        </div>
+        <div class="mt12"><a class="btn" href="book-science.html">مشاهده</a></div>
       </div>
 
       <div class="card book">
@@ -85,9 +84,7 @@
             <div class="book-desc">خلاصه درس و تحلیل متون</div>
           </div>
         </div>
-        <div style="margin-top:12px">
-          <a class="btn" href="book-persian.html">مشاهده</a>
-        </div>
+        <div class="mt12"><a class="btn" href="book-persian.html">مشاهده</a></div>
       </div>
 
       <div class="card book">
@@ -98,9 +95,7 @@
             <div class="book-desc">گام به گام مفاهیم و سوالات متن</div>
           </div>
         </div>
-        <div style="margin-top:12px">
-          <a class="btn" href="book-social.html">مشاهده</a>
-        </div>
+        <div class="mt12"><a class="btn" href="book-social.html">مشاهده</a></div>
       </div>
 
       <div class="card book">
@@ -111,9 +106,7 @@
             <div class="book-desc">خلاصه مفاهیم دینی و سوالات مهم</div>
           </div>
         </div>
-        <div style="margin-top:12px">
-          <a class="btn" href="book-religion.html">مشاهده</a>
-        </div>
+        <div class="mt12"><a class="btn" href="book-religion.html">مشاهده</a></div>
       </div>
 
       <div class="card book">
@@ -124,9 +117,7 @@
             <div class="book-desc">لغت، قواعد و تمرین</div>
           </div>
         </div>
-        <div style="margin-top:12px">
-          <a class="btn" href="book-arabic.html">مشاهده</a>
-        </div>
+        <div class="mt12"><a class="btn" href="book-arabic.html">مشاهده</a></div>
       </div>
     </section>
 
@@ -134,11 +125,12 @@
   </main>
 
 <script>
-  function togglePanel(){document.getElementById('panel').classList.toggle('open')}
-  // highlight active
+  function togglePanel(){ document.getElementById('panel').classList.toggle('open'); document.getElementById('overlay').classList.toggle('show'); }
+  function closePanel(){ document.getElementById('panel').classList.remove('open'); document.getElementById('overlay').classList.remove('show'); }
+  // highlight active menu item
   document.addEventListener('DOMContentLoaded', ()=> {
-    const items = document.querySelectorAll('.nav-list .nav-item');
-    items.forEach(it => { if(location.pathname.endsWith(it.getAttribute('href'))) it.classList.add('active') });
+    const items = document.querySelectorAll('#sideNav .nav-item');
+    items.forEach(it => { if(location.pathname.endsWith(it.getAttribute('href')) || (location.pathname.endsWith('index.html') && it.getAttribute('href')==='index.html')) it.classList.add('active') })
   });
 </script>
 </body>
