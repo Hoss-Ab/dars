@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ریاضی هشتم | dars.trevopro.online</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ریاضی هشتم | dars.trevopro.online</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* کمی استایل محلی تا هماهنگ باشه؛ میتونی حذفش کنی اگر در style.css هست */
+    .center{display:flex;align-items:center;gap:12px}
+    .mt12{margin-top:12px}
+  </style>
 </head>
 <body>
   <header class="header">
-    <div class="brand"><div class="logo">8</div><div><div class="title">ریاضی | پایه هشتم</div></div></div>
+    <div class="brand">
+      <div class="logo">8</div>
+      <div>
+        <div class="title">ریاضی | پایه هشتم</div>
+      </div>
+    </div>
+
     <div style="display:flex;align-items:center;gap:12px">
-      <nav class="top-links"><a class="nav-item" href="books.html">کتاب‌ها</a></nav>
+      <nav class="top-links">
+        <a class="nav-item" href="books.html">کتاب‌ها</a>
+      </nav>
       <div class="menu-toggle" onclick="togglePanel()">☰</div>
     </div>
   </header>
 
-  <aside class="side-panel" id="panel">
+  <div id="overlay" class="overlay" onclick="closePanel()"></div>
+
+  <aside class="side-panel" id="panel" aria-hidden="true">
     <h3>منو کتاب</h3>
     <nav class="nav-list">
       <a href="book-math.html" class="nav-item active">معرفی کتاب</a>
-      <a href="math-gam.html" class="nav-item">گام به گام</a>
+      <a href="math-steps.html" class="nav-item">گام به گام</a>
       <a href="math-soal.html" class="nav-item">سوالات متن</a>
       <a href="books.html" class="nav-item">بازگشت به فهرست کتاب‌ها</a>
     </nav>
@@ -29,9 +44,14 @@
     <section class="card">
       <h2>ریاضی هشتم</h2>
       <p class="small muted">معرفی کوتاه کتاب و ساختار فصول</p>
-      <p style="margin-top:12px">این صفحه جای معرفی کتاب است. برای دیدن گام به گام فصل ها، روی دکمه گام به گام بزن. برای دسترسی سریع به سوالات متن، روی سوالات متن کلیک کن.</p>
-      <div style="margin-top:12px">
-        <a class="btn" href="math-gam.html">گام به گام</a>
+
+      <p style="margin-top:12px">
+        این صفحه معرفی کتاب ریاضی هشتم است. برای مشاهده مطالب گام به گام فصل‌ها روی دکمه گام به گام کلیک کن.
+      </p>
+
+      <div class="mt12">
+        <!-- لینک‌ها اکنون به math-steps.html اشاره می‌کنند -->
+        <a class="btn" href="math-steps.html">گام به گام</a>
         <a class="btn" href="math-soal.html" style="background:#f5f5f5;color:var(--primary);margin-left:8px">سوالات متن</a>
       </div>
     </section>
@@ -39,6 +59,28 @@
     <footer class="footer">© 2025 dars.trevopro.online</footer>
   </main>
 
-<script>function togglePanel(){document.getElementById('panel').classList.toggle('open')}</script>
+<script>
+  function togglePanel(){
+    document.getElementById('panel').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('show');
+  }
+  function closePanel(){
+    document.getElementById('panel').classList.remove('open');
+    document.getElementById('overlay').classList.remove('show');
+  }
+
+  // highlight active item in side panel
+  document.addEventListener('DOMContentLoaded', ()=> {
+    const items = document.querySelectorAll('.nav-list .nav-item');
+    items.forEach(it => {
+      const href = it.getAttribute('href');
+      if (location.pathname.endsWith(href) || (location.pathname.endsWith('book-math.html') && href === 'book-math.html')) {
+        it.classList.add('active');
+      } else {
+        it.classList.remove('active');
+      }
+    });
+  });
+</script>
 </body>
 </html>
